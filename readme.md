@@ -81,5 +81,5 @@ Dentro do projeto você ira encontrar a pasta ```src```, que contem os arquivos 
 > - O arquivo ```input.meu``` contem o input a ser analisado
 > - O arquivo ```lex.rs``` é responsável pela analise léxica do compilador, ele pega o input do  arquivo ```input.meu```, analisa se pertence a gramatica seguindo a tabela acima e gera uma saída que são os ```tokens``` que posteriormente será utilizado pelo analisador sintatico.
 > - O arquivo ```sin.rs``` é responsável por realizar a analise sintatica, seguindo a a gramatica mostrada acima
-> você deve executar um ```cargo build``` antes de executar
-> Você pode passar o arquivo de input na flag rodando ``` cargo run -- input.meu```
+> - você deve executar um ```cargo build``` antes de executar
+> - Você pode passar o arquivo de input na flag rodando ``` cargo run -- input.meu```

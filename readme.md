@@ -62,25 +62,12 @@ IfStmt  ::= 'if' '(' E ')' Block ElseStmt
 ElseStmt ::= 'else' Block | ε
 ```
 
-### Explicação da gramatica
+### Notação da Gramatica
 
-- **E**: Representa uma expressão que pode ser uma comparação (`C`) seguida de zero ou mais operações de adição ou subtração (`E'`).
-- **E'**: Representa zero ou mais operações de adição (`+`) ou subtração (`-`) seguidas de uma comparação (`C`). Pode ser vazio (`ε`).
-- **C**: Representa uma comparação que pode ser um fator (`F`) seguido de zero ou mais operações de comparação (`C'`).
-- **C'**: Representa zero ou mais operações de comparação (`==`, `!=`, `<`, `>`, `<=`, `>=`) seguidas de um fator (`F`). Pode ser vazio (`ε`).
-- **F**: Representa um fator que pode ser um termo (`T`) seguido de zero ou mais operações de multiplicação ou divisão (`F'`).
-- **F'**: Representa zero ou mais operações de multiplicação (`*`) ou divisão (`/`) seguidas de um termo (`T`). Pode ser vazio (`ε`).
-- **T**: Representa um termo que pode ser um número inteiro (`int`), uma expressão entre parênteses (`( E )`), um bloco de código (`Block`), ou uma instrução `if` (`IfStmt`).
-- **Block**: Representa um bloco de código delimitado por chaves (`{ E }`).
-- **IfStmt**: Representa uma instrução `if` seguida de uma expressão entre parênteses (`( E )`), um bloco de código (`Block`), e uma instrução `else` opcional (`ElseStmt`).
-- **ElseStmt**: Representa uma instrução `else` seguida de um bloco de código (`Block`) ou nada (`ε`).
-
-### Notação
-
-- **ε**: Representa a produção vazia, ou seja, nada.
-- **|**: Representa uma escolha entre alternativas.
-- **()**: Usado para agrupar expressões.
-- **{}**: Delimitadores de bloco de código.
-- **int**: Representa um número inteiro.
-- **if**: Palavra-chave para a instrução condicional.
-- **else**: Palavra-chave para a instrução condicional alternativa.
+- E (Expressão): Representa uma expressão completa, com soma e subtração.
+- C (Comparação): Trata comparações entre expressões, como ==, !=, <, >, <=, >=.
+- F (Fator): Um fator pode ser um termo com multiplicação ou divisão.
+- T (Termo): Um termo pode ser um número inteiro, uma expressão entre parênteses, um bloco de código ou uma instrução if.
+- Block (Bloco): Define um bloco de código cercado por {}.
+- IfStmt (Instrução If): Define a estrutura if-else com blocos de código.
+- ElseStmt (Instrução Else): Representa a parte opcional else de um if, com um bloco de código.

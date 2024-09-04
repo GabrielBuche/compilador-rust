@@ -56,9 +56,9 @@ C       ::= F C'
 C'      ::= '==' F C' | '!=' F C' | '<' F C' | '>' F C' | '<=' F C' | '>=' F C' | ε
 F       ::= T F'
 F'      ::= '*' T F' | '/' T F' | ε
-T       ::= 'int' | '(' E ')' | B | IfStmt
+T       ::= 'int' | '(' E ')' | B | I
 B       ::= '{' E '}'
-I       ::= 'if' '(' E ')' B ElseStmt
+I       ::= 'if' '(' E ')' B L
 L       ::= 'else' B | ε
 ```
 

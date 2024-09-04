@@ -71,3 +71,15 @@ L       ::= 'else' B | ε
 - *B (Bloco):* Define um ```bloco de código``` cercado por ```{}```.
 - *I (Instrução If):* Define a estrutura ```if  else``` com ```blocos de código```.
 - *L (Instrução Else):* Representa a parte opcional ```else``` de um ```if```, com um ````bloco de código````.
+
+## Desenvolvimento
+
+Para o desenvolvimento, foi utilizada a linguagem ```[Rust](https://www.rust-lang.org/pt-BR)``` com o gerenciador de pacotes ```cargo```. O Cargo é similar ao ```npm``` do JavaScript, servindo para gerenciar dependências e pacotes no ```Rust```.  
+
+Dentro do projeto você ira encontrar a pasta ```src```, que contem os arquivos de execução do compilador.
+
+> - O arquivo ```input.meu``` contem o input a ser analisado
+> - O arquivo ```lex.rs``` é responsável pela analise léxica do compilador, ele pega o input do  arquivo ```input.meu```, analisa se pertence a gramatica seguindo a tabela acima e gera uma saída que são os ```tokens``` que posteriormente será utilizado pelo analisador sintatico.
+> - O arquivo ```sin.rs``` é responsável por realizar a analise sintatica, seguindo a a gramatica mostrada acima
+> você deve executar um ```cargo build``` antes de executar
+> Você pode passar o arquivo de input na flag rodando ``` cargo run -- input.meu```

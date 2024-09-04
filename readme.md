@@ -23,7 +23,9 @@ O que será avaliado?
 - Se o os algoritmos implementam as técnicas apresentadas e especificadas;
 - Se o algoritmo analisará corretamente as entradas definidas na hora da avaliação em sala.
 
-## Tabela de símbolos
+## Resolução
+
+### 1 - Tabela de símbolos
 
 | Símbolos | Lexema    | Descrição |
 |----------|-----------|-----------|
@@ -47,7 +49,7 @@ O que será avaliado?
 | [0-9]+   | int | Número inteiro |
 | [a-zA-Z_] [a-zA-Z0-9_]* | id | Identificador de variável |
 
-## Gramatica
+### 2 - Gramatica
 
 ```ebnf
 E       ::= C E'
@@ -62,7 +64,7 @@ I       ::= 'if' '(' E ')' B L
 L       ::= 'else' B | ε
 ```
 
-### Notação da Gramatica
+#### Notação da Gramatica
 
 - *E (Expressão):* Representa uma expressão completa, com ```soma``` e ```subtração```.
 - *C (Comparação):* Trata ```comparações``` entre expressões, como ```==, !=, <, >, <=, >=```.
@@ -72,7 +74,7 @@ L       ::= 'else' B | ε
 - *I (Instrução If):* Define a estrutura ```if  else``` com ```blocos de código```.
 - *L (Instrução Else):* Representa a parte opcional ```else``` de um ```if```, com um ````bloco de código````.
 
-## Desenvolvimento
+### 3 - Desenvolvimento
 
 Para o desenvolvimento, foi utilizada a linguagem [Rust](https://www.rust-lang.org/pt-BR) com o gerenciador de pacotes ```cargo```. O Cargo é similar ao ```npm``` do JavaScript, servindo para gerenciar dependências e pacotes no ```Rust```.  
 

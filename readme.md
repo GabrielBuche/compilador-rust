@@ -64,10 +64,10 @@ ElseStmt ::= 'else' Block | ε
 
 ### Notação da Gramatica
 
-- E (Expressão): Representa uma expressão completa, com soma e subtração.
-- C (Comparação): Trata comparações entre expressões, como ==, !=, <, >, <=, >=.
-- F (Fator): Um fator pode ser um termo com multiplicação ou divisão.
-- T (Termo): Um termo pode ser um número inteiro, uma expressão entre parênteses, um bloco de código ou uma instrução if.
-- Block (Bloco): Define um bloco de código cercado por {}.
-- IfStmt (Instrução If): Define a estrutura if-else com blocos de código.
-- ElseStmt (Instrução Else): Representa a parte opcional else de um if, com um bloco de código.
+- *E (Expressão):* Representa uma expressão completa, com ```soma``` e ```subtração```.
+- *C (Comparação):* Trata comparações entre expressões, como ```==, !=, <, >, <=, >=```.
+- *F (Fator):* Um fator pode ser um termo com ```multiplicação``` ou ```divisão```.
+- *T (Termo):* Um termo pode ser um ```número inteiro,``` uma expressão entre ```parênteses```, um ```bloco de código``` ou uma instrução ```if```.
+- *Block (Bloco):* Define um ```bloco de código``` cercado por ```{}```.
+- *IfStmt (Instrução If):* Define a estrutura ```if  else``` com blocos de código.
+- *ElseStmt (Instrução Else):* Representa a parte opcional ```else``` de um ```if```, com um ````bloco de código````.

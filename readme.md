@@ -49,16 +49,18 @@ O que será avaliado?
 
 ## Gramatica
 
-> E           ::= C E'
-> E'          ::= + C E' | - C E' | ε
-> C           ::= F C'
-> C'          ::= == F C' | != F C' | < F C' | > F C' | <= F C' | >= F C' | ε
-> F           ::= T F'
-> F'          ::= * T F' | / T F' | ε
-> T           ::= int | ( E ) | Block | IfStmt
-> Block       ::= { E }
-> IfStmt      ::= if ( E ) Block ElseStmt
-> ElseStmt    ::= else Block | ε
+```ebnf
+E       ::= C E'
+E'      ::= '+' C E' | '-' C E' | ε
+C       ::= F C'
+C'      ::= '==' F C' | '!=' F C' | '<' F C' | '>' F C' | '<=' F C' | '>=' F C' | ε
+F       ::= T F'
+F'      ::= '*' T F' | '/' T F' | ε
+T       ::= 'int' | '(' E ')' | Block | IfStmt
+Block   ::= '{' E '}'
+IfStmt  ::= 'if' '(' E ')' Block ElseStmt
+ElseStmt ::= 'else' Block | ε
+```
 
 ### Explicação da gramatica
 

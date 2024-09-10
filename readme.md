@@ -114,7 +114,7 @@ Regras para Calcular o Conjunto FOLLOW
 - Para uma produção A → αBβ, tudo em FIRST(β) exceto ε é colocado em FOLLOW(B).
 - Para uma produção A → αB, ou uma produção A → αBβ onde FIRST(β) contém ε, então tudo em FOLLOW(A) é colocado em FOLLOW(B).
 
-##### 3 - Tabela FIRST FOLLOW
+### 3 - Tabela FIRST FOLLOW
 
 | Não-Terminal | FIRST | FOLLOW |
 |--------------|-------|--------|
@@ -129,6 +129,6 @@ Regras para Calcular o Conjunto FOLLOW
 | I   |    ```if```  |  ```else, $, ), }``` |
 | L   |    ```else, ε```  |  ```else, $, ), }```  |
 
-## 4 - Tabela Preditiva LL(1)
+### 4 - Tabela Preditiva LL(1)
 
 [Tabela_Preditiva](./src/Tabela_Preditiva.csv)

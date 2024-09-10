@@ -76,16 +76,17 @@ L       ::= 'else' B | ε
 
 #### 2.2 First e follow
 
-> *Regras para Calcular o Conjunto FIRST*
+Regras para Calcular o Conjunto FIRST
  -------------------------------------
-> Se X é um terminal, então FIRST(X) é {X}.
-> Se X → ε é uma produção, então ε ∈ FIRST(X).
-> Se X é um não-terminal e X → Y1 Y2 ... Yk é uma produção, então coloque aFIRST(Y1) em FIRST(X). Se Y1 pode derivar ε, então adicione FIRST(Y2) a FIRST(X), e assim por diante. Se todos Yi podem derivar ε, então adicione ε a FIRST(X).
-> *Regras para Calcular o Conjunto FOLLOW*
- -------------------------------------
-> Coloque $ (fim de entrada) em FOLLOW(S), onde S é o símbolo inicial.
-> Para uma produção A → αBβ, tudo em FIRST(β) exceto ε é colocado em FOLLOW(B).
-> Para uma produção A → αB, ou uma produção A → αBβ onde FIRST(β) contém ε, então tudo em FOLLOW(A) é colocado em FOLLOW(B).
+1 - Se X é um terminal, então FIRST(X) é {X}.
+2 - Se X → ε é uma produção, então ε ∈ FIRST(X).
+3 - Se X é um não-terminal e X → Y1 Y2 ... Yk é uma produção, então coloque aFIRST(Y1) em FIRST(X). Se Y1 pode derivar ε, então adicione FIRST(Y2) a FIRST(X), e assim por diante. Se todos Yi podem derivar ε, então adicione ε a FIRST(X).
+
+Regras para Calcular o Conjunto FOLLOW
+-------------------------------------
+1 - Coloque $ (fim de entrada) em FOLLOW(S), onde S é o símbolo inicial.
+2 - Para uma produção A → αBβ, tudo em FIRST(β) exceto ε é colocado em FOLLOW(B).
+3 - Para uma produção A → αB, ou uma produção A → αBβ onde FIRST(β) contém ε, então tudo em FOLLOW(A) é colocado em FOLLOW(B).
 
  
 

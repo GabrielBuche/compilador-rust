@@ -22,6 +22,7 @@ Dentro do projeto você ira encontrar a pasta ```src```, que contem os arquivos 
     - [2 - Gramatica](#2---gramatica)
       - [2.1 Notação da Gramatica](#21-notação-da-gramatica)
       - [2.2.0 First e follow](#220-first-e-follow)
+        - [Tabela FIRST FOLLOW](#tabela-first-follow)
   - [Tabela Preditiva LL(1)](#tabela-preditiva-ll1)
 
 ## Enunciado
@@ -101,19 +102,19 @@ L       ::= 'else' B | ε
 
 #### 2.2.0 First e follow
 
-2.2.1 Regras para Calcular o Conjunto FIRST
+Regras para Calcular o Conjunto FIRST
 
 - Se X é um terminal, então FIRST(X) é {X}.
 - Se X → ε é uma produção, então ε ∈ FIRST(X).
 - Se X é um não-terminal e X → Y1 Y2 ... Yk é uma produção, então coloque aFIRST(Y1) em FIRST(X). Se Y1 pode derivar ε, então adicione FIRST(Y2) a FIRST(X), e assim por diante. Se todos Yi podem derivar ε, então adicione ε a FIRST(X).
 
-2.2.2 Regras para Calcular o Conjunto FOLLOW
+Regras para Calcular o Conjunto FOLLOW
 
 - Coloque $ (fim de entrada) em FOLLOW(S), onde S é o símbolo inicial.
 - Para uma produção A → αBβ, tudo em FIRST(β) exceto ε é colocado em FOLLOW(B).
 - Para uma produção A → αB, ou uma produção A → αBβ onde FIRST(β) contém ε, então tudo em FOLLOW(A) é colocado em FOLLOW(B).
 
-2.2.4 Tabela FIRST FOLLOW
+##### Tabela FIRST FOLLOW
 
 | Não-Terminal | FIRST | FOLLOW |
 |--------------|-------|--------|
@@ -130,15 +131,4 @@ L       ::= 'else' B | ε
 
 ## Tabela Preditiva LL(1)
 
-| Não-Terminal | int         | (           | {           | if          | +            | -            | *            | /            | ==           | !=           | <            | >            | <=           | >=           | )            | }            | else         | $            |
-|--------------|-------------|-------------|-------------|-------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|
-| **E**        | E → C E'    | E → C E'    | E → C E'    | E → C E'    |              |              |              |              |              |              |              |              |              |              |              |              |              |              |
-| **E'**       |             |             |             |             | E' → + C E'  | E' → - C E'  |              |              |              |              |              |              |              |              | E' → ε       | E' → ε       | E' → ε       | E' → ε       |
-| **C**        | C → F C'    | C → F C'    | C → F C'    | C → F C'    |              |              |              |              |              |              |              |              |              |              |              |              |              |              |
-| **C'**       |             |             |             |             |              |              |              |              | C' → == F C' | C' → != F C' | C' → < F C'  | C' → > F C'  | C' → <= F C' | C' → >= F C' | C' → ε       | C' → ε       | C' → ε       | C' → ε       |
-| **F**        | F → T F'    | F → T F'    | F → T F'    | F → T F'    |              |              |              |              |              |              |              |              |              |              |              |              |              |              |
-| **F'**       |             |             |             |             |              |              | F' → * T F'  | F' → / T F'  |              |              |              |              |              |              | F' → ε       | F' → ε       | F' → ε       | F' → ε       |
-| **T**        | T → int     | T → ( E )   | T → B       | T → I       |              |              |              |              |              |              |              |              |              |              |              |              |              |              |
-| **B**        |             |             | B → { E }   |             |              |              |              |              |              |              |              |              |              |              |              |              |              |              |
-| **I**        |             |             |             | I → if ( E ) B L |          |              |              |              |              |              |              |              |              |              |              |              |              |              |
-| **L**        |             |             |             |             |              |              |              |              |              |              |              |              |              |              |              |              | L → else B   | L → ε       |
+[Tabela_Preditiva](./src/Tabela_Preditiva.csv)

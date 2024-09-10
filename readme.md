@@ -90,7 +90,7 @@ I       ::= if ( E ) B L
 L       ::= else B | ε
 ```
 
-#### 2.1 Notação da Gramatica
+#### 2.1 - Notação da Gramatica
 
 - *E (Expressão):* Representa uma expressão completa, com ```soma``` e ```subtração```.
 - *C (Comparação):* Trata ```comparações``` entre expressões, como ```==, !=, <, >, <=, >=```.
@@ -100,7 +100,7 @@ L       ::= else B | ε
 - *I (Instrução If):* Define a estrutura ```if  else``` com ```blocos de código```.
 - *L (Instrução Else):* Representa a parte opcional ```else``` de um ```if```, com um ````bloco de código````.
 
-#### 2.2.0 First e follow
+#### 2.2 - First e follow
 
 Regras para Calcular o Conjunto FIRST
 
@@ -114,7 +114,7 @@ Regras para Calcular o Conjunto FOLLOW
 - Para uma produção A → αBβ, tudo em FIRST(β) exceto ε é colocado em FOLLOW(B).
 - Para uma produção A → αB, ou uma produção A → αBβ onde FIRST(β) contém ε, então tudo em FOLLOW(A) é colocado em FOLLOW(B).
 
-##### Tabela FIRST FOLLOW
+##### 3 - Tabela FIRST FOLLOW
 
 | Não-Terminal | FIRST | FOLLOW |
 |--------------|-------|--------|
@@ -129,6 +129,6 @@ Regras para Calcular o Conjunto FOLLOW
 | I   |    ```if```  |  ```else, $, ), }``` |
 | L   |    ```else, ε```  |  ```else, $, ), }```  |
 
-## Tabela Preditiva LL(1)
+## 4 - Tabela Preditiva LL(1)
 
 [Tabela_Preditiva](./src/Tabela_Preditiva.csv)

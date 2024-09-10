@@ -64,7 +64,7 @@ I       ::= 'if' '(' E ')' B L
 L       ::= 'else' B | ε
 ```
 
-#### Notação da Gramatica
+#### 2.1 Notação da Gramatica
 
 - *E (Expressão):* Representa uma expressão completa, com ```soma``` e ```subtração```.
 - *C (Comparação):* Trata ```comparações``` entre expressões, como ```==, !=, <, >, <=, >=```.
@@ -73,6 +73,21 @@ L       ::= 'else' B | ε
 - *B (Bloco):* Define um ```bloco de código``` cercado por ```{}```.
 - *I (Instrução If):* Define a estrutura ```if  else``` com ```blocos de código```.
 - *L (Instrução Else):* Representa a parte opcional ```else``` de um ```if```, com um ````bloco de código````.
+
+#### 2.2 First e follow
+
+> *Regras para Calcular o Conjunto FIRST*
+ -------------------------------------
+> Se X é um terminal, então FIRST(X) é {X}.
+> Se X → ε é uma produção, então ε ∈ FIRST(X).
+> Se X é um não-terminal e X → Y1 Y2 ... Yk é uma produção, então coloque aFIRST(Y1) em FIRST(X). Se Y1 pode derivar ε, então adicione FIRST(Y2) a FIRST(X), e assim por diante. Se todos Yi podem derivar ε, então adicione ε a FIRST(X).
+> *Regras para Calcular o Conjunto FOLLOW*
+ -------------------------------------
+> Coloque $ (fim de entrada) em FOLLOW(S), onde S é o símbolo inicial.
+> Para uma produção A → αBβ, tudo em FIRST(β) exceto ε é colocado em FOLLOW(B).
+> Para uma produção A → αB, ou uma produção A → αBβ onde FIRST(β) contém ε, então tudo em FOLLOW(A) é colocado em FOLLOW(B).
+
+ 
 
 ### 3 - Desenvolvimento
 
@@ -85,3 +100,16 @@ Dentro do projeto você ira encontrar a pasta ```src```, que contem os arquivos 
 > - O arquivo ```sin.rs``` é responsável por realizar a analise sintatica, seguindo a a gramatica mostrada acima
 > - você deve executar um ```cargo build``` antes de executar
 > - Você pode passar o arquivo de input como flag rodando ```cargo run -- input.meu```
+
+| Não-Terminal | FIRST | FOLLOW |
+|--------------|-------|--------|
+| E   |   {'int', '(', '{', 'if'} | {'$', ')', '}'} |
+| E'  |   {'+', '-', ε}           | {'$', ')', '}'} |
+| C   |   {'int', '(', '{', 'if'} | {'+', '-', '$', ')', '}', '==', '!=', '<', '>', '<=', '>='} |
+| C'  |   {'==', '!=', '<', '>', '<=', '>=', ε} | {'+', '-', '$', ')', '}', '==', '!=', '<', '>', '<=', '>='}|
+| F   |   {'int', '(', '{', 'if'} | {'+', '-', '$', ')', '}', '==', '!=', '<', '>', '<=', '>=', '*', '/'} |
+| F'  |   {'*', '/', ε} | {'+', '-', '$', ')', '}', '==', '!=', '<', '>', '<=', '>=', '*', '/'} |
+| T   |   {'int', '(', '{', 'if'} | {'+', '-', '$', ')', '}', '==', '!=', '<', '>', '<=', '>=', '*', '/'} |
+| B   |   {'{'} | {'else', '$', ')', '}'} |
+| I   |   {'if'} |{'else', '$', ')', '}'} |
+| L   |   {'else', ε} | {'else', '$', ')', '}'} |

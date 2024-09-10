@@ -1,8 +1,32 @@
-# Exercício Compiladores
+# Criação Compilador preditivo ll1
 
-> Foi baseado nas atividades feita em sala, e com auxilio do livro "Compiladores Princípios e técnicas e ferramentas 2° Edição"
+Para o desenvolvimento do compilador, foi utilizada a linguagem [Rust](https://www.rust-lang.org/pt-BR) com o gerenciador de pacotes ```cargo```. O Cargo é similar ao ```npm``` do JavaScript, servindo para gerenciar dependências e pacotes no ```Rust```.  
+
+Dentro do projeto você ira encontrar a pasta ```src```, que contem os arquivos de execução do compilador.
+
+> - O arquivo ```input.meu``` contem o input a ser analisado
+> - O arquivo ```lex.rs``` é responsável pela analise léxica do compilador, ele pega o input do  arquivo ```input.meu```, analisa se pertence a gramatica seguindo a tabela acima e gera uma saída que são os ```tokens``` que posteriormente será utilizado pelo analisador sintatico.
+> - O arquivo ```sin.rs``` é responsável por realizar a analise sintatica, seguindo a a gramatica mostrada acima
+> - você deve executar um ```cargo build``` antes de executar
+> - Você pode passar o arquivo de input como flag rodando ```cargo run -- input.meu```
+
+## SUMÁRIO
+
+- [Criação Compilador preditivo ll1](#criação-compilador-preditivo-ll1)
+  - [SUMÁRIO](#sumário)
+  - [Enunciado](#enunciado)
+    - [1 - Construa uma Gramática e uma Tabela de Símbolos para uma linguagem de programação que respeite os seguintes critérios](#1---construa-uma-gramática-e-uma-tabela-de-símbolos-para-uma-linguagem-de-programação-que-respeite-os-seguintes-critérios)
+    - [2 - Implemente um Analisador Léxico e um Analisador Sintático Preditivo LL(1) para a linguagem desenvolvida](#2---implemente-um-analisador-léxico-e-um-analisador-sintático-preditivo-ll1-para-a-linguagem-desenvolvida)
+  - [Resolução](#resolução)
+    - [1 - Tabela de símbolos](#1---tabela-de-símbolos)
+    - [2 - Gramatica](#2---gramatica)
+      - [2.1 Notação da Gramatica](#21-notação-da-gramatica)
+      - [2.2.0 First e follow](#220-first-e-follow)
 
 ## Enunciado
+
+> *Nota*
+> Foi baseado nas atividades feita em sala, e com auxilio do livro "Compiladores Princípios e técnicas e ferramentas 2° Edição"
 
 ### 1 - Construa uma Gramática e uma Tabela de Símbolos para uma linguagem de programação que respeite os seguintes critérios
 
@@ -74,31 +98,21 @@ L       ::= 'else' B | ε
 - *I (Instrução If):* Define a estrutura ```if  else``` com ```blocos de código```.
 - *L (Instrução Else):* Representa a parte opcional ```else``` de um ```if```, com um ````bloco de código````.
 
-#### 2.2 First e follow
+#### 2.2.0 First e follow
 
-Regras para Calcular o Conjunto FIRST
+2.2.1 Regras para Calcular o Conjunto FIRST
 
 - Se X é um terminal, então FIRST(X) é {X}.
 - Se X → ε é uma produção, então ε ∈ FIRST(X).
 - Se X é um não-terminal e X → Y1 Y2 ... Yk é uma produção, então coloque aFIRST(Y1) em FIRST(X). Se Y1 pode derivar ε, então adicione FIRST(Y2) a FIRST(X), e assim por diante. Se todos Yi podem derivar ε, então adicione ε a FIRST(X).
 
-Regras para Calcular o Conjunto FOLLOW
+2.2.2 Regras para Calcular o Conjunto FOLLOW
 
 - Coloque $ (fim de entrada) em FOLLOW(S), onde S é o símbolo inicial.
 - Para uma produção A → αBβ, tudo em FIRST(β) exceto ε é colocado em FOLLOW(B).
 - Para uma produção A → αB, ou uma produção A → αBβ onde FIRST(β) contém ε, então tudo em FOLLOW(A) é colocado em FOLLOW(B).
 
-### 3 - Desenvolvimento
-
-Para o desenvolvimento, foi utilizada a linguagem [Rust](https://www.rust-lang.org/pt-BR) com o gerenciador de pacotes ```cargo```. O Cargo é similar ao ```npm``` do JavaScript, servindo para gerenciar dependências e pacotes no ```Rust```.  
-
-Dentro do projeto você ira encontrar a pasta ```src```, que contem os arquivos de execução do compilador.
-
-> - O arquivo ```input.meu``` contem o input a ser analisado
-> - O arquivo ```lex.rs``` é responsável pela analise léxica do compilador, ele pega o input do  arquivo ```input.meu```, analisa se pertence a gramatica seguindo a tabela acima e gera uma saída que são os ```tokens``` que posteriormente será utilizado pelo analisador sintatico.
-> - O arquivo ```sin.rs``` é responsável por realizar a analise sintatica, seguindo a a gramatica mostrada acima
-> - você deve executar um ```cargo build``` antes de executar
-> - Você pode passar o arquivo de input como flag rodando ```cargo run -- input.meu```
+2.2.4 Tabela FIRST FOLLOW
 
 | Não-Terminal | FIRST | FOLLOW |
 |--------------|-------|--------|
@@ -112,3 +126,4 @@ Dentro do projeto você ira encontrar a pasta ```src```, que contem os arquivos 
 | B   |   { '{'} | { 'else', '$', ')', '}' } |
 | I   |   { 'if'} | { 'else', '$', ')', '}' } |
 | L   |   { 'else', ε } | { 'else', '$', ')', '}' } |
+
